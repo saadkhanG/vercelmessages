@@ -19,6 +19,7 @@ export default async function handler(req, res) {
 
     res.status(200).json(data);
   } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
+  console.error("MongoDB connection error:", err);
+  res.status(500).json({ error: err.message });
+}
 }
